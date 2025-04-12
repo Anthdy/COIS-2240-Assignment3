@@ -21,15 +21,23 @@ public class RentalSystem {
     private List<Customer> customers = new ArrayList<>();
     private RentalHistory rentalHistory = new RentalHistory();
 
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
-    	try {
-    		BufferedWriter saveVehicle = new BufferedWriter(new FileWriter("vehicles.txt"));
-    		saveVehicle.write("\n" + vehicle.getLicensePlate() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getYear());
-    		saveVehicle.close();
-    	} catch(IOException e) 
+    public boolean addVehicle(Vehicle vehicle) {
+    	if(vehicles.getLicensePlate() )
     	{
-    		e.printStackTrace();
+            vehicles.add(vehicle);
+        	try {
+        		BufferedWriter saveVehicle = new BufferedWriter(new FileWriter("vehicles.txt"));
+        		saveVehicle.write("\n" + vehicle.getLicensePlate() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getYear());
+        		saveVehicle.close();
+        	} catch(IOException e) 
+        	{
+        		e.printStackTrace();
+        	}
+        	return true;
+    	}
+    	else
+    	{
+    		return false;
     	}
     }
 
