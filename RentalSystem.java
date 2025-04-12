@@ -3,6 +3,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class RentalSystem {
+	
+	static RentalSystem rentalSystem = new RentalSystem();
+	
+	private RentalSystem (){}
+	
+	public static RentalSystem getInstance()
+	{
+		return rentalSystem;
+	}
+	
     private List<Vehicle> vehicles = new ArrayList<>();
     private List<Customer> customers = new ArrayList<>();
     private RentalHistory rentalHistory = new RentalHistory();
@@ -88,5 +98,20 @@ public class RentalSystem {
             if (c.getCustomerName().equalsIgnoreCase(name))
                 return c;
         return null;
+    }
+    
+    public void saveVehicle(Vehicle vehicle)
+    {
+    	
+    }
+    
+    public void saveCustomer(Customer customer) 
+    {
+    	
+    }
+    
+    public void saveRecord(RentalRecord record)
+    {
+    	
     }
 }
