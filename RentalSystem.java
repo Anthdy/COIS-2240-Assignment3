@@ -8,7 +8,7 @@ public class RentalSystem {
 	
 	private RentalSystem (){}
 	
-	public static RentalSystem getInstance()
+	static RentalSystem getInstance()
 	{
 		return rentalSystem;
 	}
