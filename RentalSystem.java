@@ -1,7 +1,9 @@
 import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -144,6 +146,43 @@ public class RentalSystem {
     		rentalRecordWriter.close();
     	} catch(IOException e) 
     	{
+    		e.printStackTrace();
+    	}
+    }
+    
+    public void loadData()
+    {
+    	String line;
+    	try {
+    		BufferedReader vehicleReader = new BufferedReader(new FileReader("vehicles.txt"));
+    		while((line = vehicleReader.readLine()) != null)
+    		{
+    			System.out.println(line);
+    		}
+    		vehicleReader.close();
+    	}catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	try {
+    		BufferedReader customerReader = new BufferedReader(new FileReader("customers.txt"));
+    		while((line = customerReader.readLine()) != null)
+    		{
+    			System.out.println(line);
+    		}
+    		customerReader.close();
+    	}catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	try {
+    		BufferedReader recordReader = new BufferedReader(new FileReader("rental_records.txt"));
+    		while((line = recordReader.readLine()) != null)
+    		{
+    			System.out.println(line);
+    		}
+    		recordReader.close();
+    	}catch (IOException e) {
     		e.printStackTrace();
     	}
     }
